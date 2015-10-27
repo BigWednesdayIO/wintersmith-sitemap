@@ -9,7 +9,7 @@ module.exports = (env, callback) ->
 
     getPages: (contents) ->
       env.helpers.contents.list(contents).filter (content) ->
-        content instanceof env.plugins.MarkdownPage and not content.metadata.noindex
+        content instanceof env.plugins.MarkdownPage and not content.metadata.noindex and content.filepath.relative.indexOf('data/') isnt 0
 
     getView: -> (env, locals, contents, templates, callback) ->
       sitemap =
